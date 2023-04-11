@@ -23,7 +23,7 @@ first we'll see the source code
 ```
 nothing of interest
 
-next I checked the `robots.txt` of the site, but fouond nothing
+next checked the `robots.txt` of the site, but found nothing
 
 ## Directory Enumerating
 using `gobuster` I bruteforced the directories
@@ -53,12 +53,17 @@ going to the `/files/` directory
 ![image](https://user-images.githubusercontent.com/99322823/231015632-8a1c5015-6996-44b6-872b-34df367870e9.png)
 
 ## Directory Traversal
+Checked if it's vulnerable to path traverse `http://wlemyw93xjyc7zr8r4gvmkxal3dmp6v4pjjefx3g-web.cybertalentslabs.com/../../../../../`
 
-I scrolled through it and found a `shadow` directory but its access was denied 
+but it just took me back to the mr. bean page
+
+I scrolled through and found a `shadow` directory but its access was denied 
 
 ![image](https://user-images.githubusercontent.com/99322823/231015807-f37e6361-690f-4f9e-bfbb-628b67670f01.png)
 
-but we found valuable info: it's run on nginx, AND there was a directory named `nginx` so I went back and searched through the nginx directory and found something interesting 
+but it gave us some valuable info: it's run on nginx, AND there was a directory named `nginx` so I went back and searched through it a bit and found something interesting 
+
+## Nginx Alias
 
 navigating to:
 `/files/nginx/conf.d/default.conf `
@@ -80,6 +85,17 @@ server {
     }
 }
 ```
+ the last two lines indicate it's vulnerable to alias path traversal
+ 
+ for reading more about this vulnerability check this article [here](https://www.acunetix.com/vulnerabilities/web/path-traversal-via-misconfigured-nginx-alias/) 
+ 
+ basically, that means if we write `/files../` it will go back one directory, and voila 
 
-
-https://www.acunetix.com/vulnerabilities/web/path-traversal-via-misconfigured-nginx-alias/
+![image](https://user-images.githubusercontent.com/99322823/231026577-cc1c725e-3d61-4be4-bd4f-01872ab7e997.png)
+ 
+ now the description comes in use "Come back home Mr. Bean."
+ 
+ going to the `home/` directory we find the flag 
+ 
+ ![image](https://user-images.githubusercontent.com/99322823/231026886-013ce3e9-6863-4132-b0b6-b6c0f8e02dbb.png)
+![image](https://user-images.githubusercontent.com/99322823/231027047-7f16da22-1681-42c6-a8d8-4221309ee955.png)
