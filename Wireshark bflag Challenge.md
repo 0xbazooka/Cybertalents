@@ -16,8 +16,7 @@
 - first we need to download pcap file
 - lets open it using wireshark ![pcapFile](https://user-images.githubusercontent.com/83983701/231558294-5d3d4915-63f0-4eec-9522-5ba39b247200.png)
 - so we have this captured traffic
-- we need to find the flag so can search about ```flag``` word as a string
-- so we have this ![flagSearch](https://user-images.githubusercontent.com/83983701/231558378-f7fa53b2-1f67-480e-be81-4a8c924ddf48.png)
+- we need to find the flag so can search about ```flag``` word as a string ![flagSearch](https://user-images.githubusercontent.com/83983701/231558378-f7fa53b2-1f67-480e-be81-4a8c924ddf48.png)
 - some times there are characters represent as number as follow:
 
   ```
