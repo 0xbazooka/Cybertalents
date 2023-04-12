@@ -1,0 +1,18 @@
+(encoding) who am i challenge 
+
+cybertalent challenge 
+<https://cybertalents.com/learn/introduction-to-cybersecurity/7-encoding/challenges/who-am-i>
+
+-> first it gives me a log in page , 
+I tried to enter any email and pass but it gives me wrong answer 
+
+I decided to check the source code of the page -->> i found a comment has email Guest and pass Guest .
+I checked it and entered me to another page welcome guest but i don't have admin privilege to know the flag .
+
+so i checked the cookies and found that there is a base64 encode of the guest value stored in the cookie .
+i decode it and change the value from Login=Guest to Login=admin,
+and encode it again to put it in the cookie value -->> it success and it gives me the flag 
+
+the flag is <FLag{B@D_4uTh1Nt1C4Ti0n}> 
+
+
