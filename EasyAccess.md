@@ -26,7 +26,9 @@ the second try is to inject this payload
 ![sqli(3)](https://user-images.githubusercontent.com/130427754/231793583-e6c0bd9f-c469-445d-9b03-4c22b4e7dbcc.png)
 
 And VOILA ! we succeeded to inject 
- 
+
+ ![admin](https://user-images.githubusercontent.com/130427754/231812336-d2575905-34e8-4f96-8bad-e9d63034f8c6.png)
+
 ```
  
  flag{!njection_3v3ry_wh3r3}
